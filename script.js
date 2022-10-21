@@ -1,25 +1,30 @@
 let count = 0;
 
-// let value = document.getElementsByClassName('value');
-// let btns = document.getElementsByClassName('btn');
-
-// btns.forEach(btn =>{
-//     btn.addEventListener('click', e =>{
-//         if(e.target.classList.contains('increase')){
-//             count ++;
-//         }
-//         value.textContent = count;
-//     })
-// })
-
-let value = document.querySelector('.class');
+let value = document.querySelector('.value');
 let btns = document.querySelectorAll('.btn');
 
-btns.forEach(btn =>{
-    btn.addEventListener('click', e=>{
-        if(e.target.classList.contains('increase')){
+btns.forEach(element =>{
+    element.addEventListener('click', btn =>{
+        const styles = btn.target.classList;
+        if(styles.contains('decrease')){
+            count --;
+        }
+        else if(styles.contains('increase')){
             count++;
         }
-        value.innerHTML = count;
+        else{
+            count = 0;
+        }
+
+        if(count < 0){
+            value.style.color = 'red';
+        }
+        else if(count > 0){
+            value.style.color = 'green';
+        }
+        else{
+            value.style.color = 'black';
+        }
+        value.textContent = count;
     })
 })
