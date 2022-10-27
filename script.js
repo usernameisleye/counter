@@ -1,3 +1,5 @@
+alert('Welcome to my counter web app, just a simple JS project')
+
 let count = 0;
 
 let value = document.querySelector('.value');
